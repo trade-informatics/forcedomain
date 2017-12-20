@@ -15,7 +15,7 @@ var redirect = function redirect(protocol, hostHeader, url, options) {
   var port = hostHeaderParts[1] - 0 || undefined;
   var targetProtocol = options.protocol ? options.protocol : protocol;
 
-  if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.') || hostname === options.hostname && port === options.port && protocol === targetProtocol || options.excludeRule && hostname.match(options.excludeRule)) {
+  if (hostname === 'localhost' || hostname === '127.0.0.1' || _(hostname).startsWith('192.168.') || hostname === options.hostname && port === options.port && protocol === targetProtocol || options.excludeRule && hostname.match(options.excludeRule)) {
     return null;
   }
 
